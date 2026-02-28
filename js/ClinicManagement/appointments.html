@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointments - HealthCare</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <h2> HealthCare</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li id="logoutBtn" style="display:none;"><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2>Book Appointment</h2>
+
+    <form id="appointmentForm">
+        <input type="text" id="patientName" readonly placeholder="Patient Name">
+
+        <select id="doctorSelect">
+            <option value="">Select Doctor</option>
+            <option>Dr. Anjali</option>
+            <option>Dr. Mahesh</option>
+            <option>Dr.Lilly</option>
+        </select>
+
+        <input type="datetime-local" id="appointmentDate">
+        <textarea id="reason" placeholder="Reason"></textarea>
+        <button type="submit">Book</button>
+    </form>
+
+    <h2>Your Appointments</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Reason</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="appointmentTable"></tbody>
+    </table>
+</div>
+
+<footer>
+    <p>© 2026 HealthCare</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
