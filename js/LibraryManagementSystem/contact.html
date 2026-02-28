@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+<link rel="stylesheet" href="css/style.css">
+<script>
+function sendMessage(){
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let msg=document.getElementById("msg").value;
+
+if(name===""||email===""||msg===""){
+alert("All fields required");
+return;
+}
+alert("Message sent successfully!");
+}
+</script>
+</head>
+<body>
+
+<div class="form-box">
+<h2>Contact Us</h2>
+<input type="text" id="name" placeholder="Your Name">
+<input type="email" id="email" placeholder="Your Email">
+<textarea id="msg" placeholder="Your Message"></textarea>
+<button class="btn-primary" onclick="sendMessage()">Send</button>
+</div>
+
+</body>
+</html>
