@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HRPro - Payroll</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>HRPro</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="employees.html">Employees</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="payroll.html" class="active">Payroll</a>
+        <a href="login.html" id="loginLink">Login</a>
+        <a href="signup.html" id="signupLink">Signup</a>
+        <button id="logoutBtn" class="hidden" onclick="logout()">Logout</button>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Payroll</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Employee ID</th>
+                <th>Basic Salary</th>
+                <th>Allowance</th>
+                <th>Deductions</th>
+                <th>Net Salary</th>
+            </tr>
+        </thead>
+        <tbody id="payrollTable"></tbody>
+    </table>
+</div>
+
+<footer>
+    <p>© 2026 HRPro | support@hrpro.com</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

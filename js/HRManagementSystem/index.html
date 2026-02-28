@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HRPro - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>HR</h1>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="employees.html">Employees</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="payroll.html">Payroll</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" id="loginLink">Login</a>
+        <a href="signup.html" id="signupLink">Signup</a>
+        <button id="logoutBtn" class="hidden" onclick="logout()">Logout</button>
+    </nav>
+</header>
+
+<div class="container">
+    <h2 id="welcomeUser">Welcome to HRPro!</h2>
+    <p>Dashboard Highlights:</p>
+    <ul>
+        <li>Total Employees: <span id="totalEmployees">0</span></li>
+        <li>Attendance Today: <span id="attendanceToday">0</span></li>
+        <li>Payroll Summary: <span id="payrollSummary">0</span></li>
+    </ul>
+    <p>Announcements / HR Updates:</p>
+    <ul>
+        <li>New company policy updated on 01/01/2026.</li>
+        <li>HR team meeting scheduled for next week.</li>
+    </ul>
+</div>
+
+<footer>
+    <p>© 2026 HRPro | support@hrpro.com | Working Days: Mon-Fri, 9AM-6PM</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    // Dashboard stats
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    document.getElementById('totalEmployees').innerText = users.length;
+
+    const attendance = JSON.parse(localStorage.getItem('attendance') || '[]');
+    const today = new Date().toLocaleDateString();
+    const todayCount = attendance.filter(a => a.date === today && a.status === 'Present').length;
+    document.getElementById('attendanceToday').innerText = todayCount;
+
+    const payroll = JSON.parse(localStorage.getItem('payroll') || '[]');
+    let totalPayroll = payroll.reduce((sum,r)=>sum+(r.basic||0)+(r.allowance||0)-(r.deduction||0),0);
+    document.getElementById('payrollSummary').innerText = totalPayroll;
+</script>
+</body>
+</html>

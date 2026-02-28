@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HRPro - Signup</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>HRPro</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="employees.html">Employees</a>
+        <a href="login.html" id="loginLink">Login</a>
+        <a href="signup.html" id="signupLink">Signup</a>
+        <button id="logoutBtn" class="hidden" onclick="logout()">Logout</button>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Signup</h2>
+    <form onsubmit="signup(event)">
+        <input type="text" id="fullName" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <select id="role" required>
+            <option value="">Select Role</option>
+            <option value="Employee">Employee</option>
+            <option value="HR">HR</option>
+        </select>
+        <input type="text" id="contact" placeholder="Contact Number" required>
+        <button type="submit">Signup</button>
+    </form>
+</div>
+
+<footer>
+    <p>© 2026 HRPro | support@hrpro.com</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
