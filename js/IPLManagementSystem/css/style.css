@@ -1,0 +1,90 @@
+/* Basic Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #FF6700;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .logo span {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+}
+.nav-links li.active a,
+.nav-links li a:hover {
+  background-color: white;
+  color: #FF6700;
+  border-radius: 5px;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+footer a {
+  color: #FF6700;
+  text-decoration: none;
+}
+
+/* Cards */
+.team-card, .player-card, .match-card {
+  background: white;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 5px #ccc;
+}
+
+/* Forms */
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+input, textarea {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Table */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+table th {
+  background-color: #FF6700;
+  color: white;
+}
