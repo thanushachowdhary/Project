@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact - ShopEase</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Contact Us</h2>
+    <input type="text" id="cname" placeholder="Your Name"><br><br>
+    <input type="email" id="cemail" placeholder="Your Email"><br><br>
+    <textarea id="cmessage" placeholder="Your Message"></textarea><br><br>
+    <button onclick="submitForm()">Send</button>
+</div>
+
+<script>
+function submitForm() {
+    const name = document.getElementById("cname").value;
+    const email = document.getElementById("cemail").value;
+    const message = document.getElementById("cmessage").value;
+
+    if (!name || !email || !message) {
+        alert("All fields are required!");
+        return;
+    }
+
+    alert("Message sent successfully!");
+    document.getElementById("cname").value = "";
+    document.getElementById("cemail").value = "";
+    document.getElementById("cmessage").value = "";
+}
+</script>
+
+</body>
+</html>

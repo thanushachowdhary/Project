@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout - ShopEase</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Order Summary</h2>
+    <div id="bill"></div>
+    <button onclick="printBill()">Print Bill</button>
+</div>
+
+<script src="js/data.js"></script>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = 0;
+const billDiv = document.getElementById("bill");
+
+cart.forEach(id => {
+    const product = products.find(p => p.id === id);
+    total += product.price;
+    billDiv.innerHTML += `<p>${product.name} - ₹${product.price}</p>`;
+});
+
+let tax = total * 0.05;
+let grandTotal = total + tax;
+
+billDiv.innerHTML += `<h3>Subtotal: ₹${total}</h3>`;
+billDiv.innerHTML += `<h3>Tax (5%): ₹${tax}</h3>`;
+billDiv.innerHTML += `<h2>Total: ₹${grandTotal}</h2>`;
+
+function printBill() {
+    window.print();
+}
+</script>
+
+</body>
+</html>
