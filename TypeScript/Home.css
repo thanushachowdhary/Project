@@ -1,0 +1,25 @@
+.home-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:40px 80px;
+  min-height:75vh;
+  background:#f5f7fa;
+}
+.home-content{
+  max-width:500px;
+}
+.home-content h1{
+  font-size:42px;
+  color:#1e3c72;
+  margin-bottom:20px;
+}
+.home-content p{
+  font-size:20px;
+  color:#555;
+  line-height:1.6;
+}
+.home-image img{
+  width:550px;
+  max-width:100%;
+}
