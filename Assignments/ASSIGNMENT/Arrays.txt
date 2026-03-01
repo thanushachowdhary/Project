@@ -1,0 +1,107 @@
+ARRAYS  ASSIGNMENT 
+1.**Problem Statement:**  
+Given an array **A** of size **N** containing numbers from **1 to N**, find the frequency of each
+number in the array.
+Ans.
+import java.io.*;
+import java.util.*;
+public class Main{
+    public static void main(String[] args) throws Exception{
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        int N=Integer.parseInt(br.readLine().trim());
+        int[] freq=new int[N+1];
+        StringTokenizer st=new StringTokenizer(br.readLine());
+        for (int i=0;i<N;i++) {
+            int num=Integer.parseInt(st.nextToken());
+            freq[num]++;
+        }
+        StringBuilder sb=new StringBuilder();
+        for (int i=1;i<=N;i++){
+            sb.append(i).append(":").append(freq[i]).append("\n");
+        }
+        System.out.print(sb);
+    }
+}
+
+2.**Problem Statement:**  
+Given an array **A** of size **N**, find how many distinct numbers are present in the array
+Ans.
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int N=sc.nextInt();
+        HashSet<Integer> set=new HashSet<>();
+        for (int i=0;i<N;i++) {
+            int num=sc.nextInt();
+            set.add(num);
+        }
+        System.out.println(set.size());
+        sc.close();
+    }
+}
+
+3.**Problem Statement:**  
+Find the maximum element in a given array of integers
+Ans.
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int N=sc.nextInt();
+        long max=sc.nextLong();
+        for (int i=1;i<N;i++) {
+            long num=sc.nextLong();
+            if (num>max) {
+                max=num;
+            }
+        }
+        System.out.println(max);
+        sc.close();
+    }
+}
+
+4.**Problem Statement:**  
+Print the sum of all odd elements in an array
+Ans.
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int N=sc.nextInt();
+        long sum=0; 
+        for (int i=0;i<N;i++) {
+            long num=sc.nextLong();
+            if (num%2!=0) {
+                sum+=num;
+            }
+        }
+        System.out.println(sum);
+        sc.close();
+    }
+}
+
+5.**Problem Statement:**  
+Find a duplicate element in the given array of integers. There will be only a single duplicate element
+in the array. 
+Ans.
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int N=sc.nextInt();
+        long[] arr=new long[N];
+        for (int i=0;i<N;i++) {
+            arr[i]=sc.nextLong();
+        }
+        for (int i=0;i<N;i++) {
+            for (int j=i+1;j<N;j++) {
+                if (arr[i]==arr[j]) {
+                    System.out.println(arr[i]);
+                    return;
+                }
+            }
+        }
+        sc.close();
+    }
+}

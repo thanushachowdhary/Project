@@ -1,0 +1,103 @@
+-----Abstract---- 
+Design a simple Java application that demonstrates the concept of abstraction and dynamic 
+method dispatch using an abstract class named Media. The application should allow users to 
+input and display details about different types of media: Books, Movies, and Songs.
+Ans.
+import java.util.Scanner;
+
+abstract class Media {
+    String title;
+    String creator;
+    int duration;
+    static Scanner sc = new Scanner(System.in);
+
+    abstract void printDetails();
+}
+
+// Book subclass
+class Book extends Media {
+    int pages;
+
+    @Override
+    void printDetails() {
+        System.out.println("Entering Book Details...");
+
+        System.out.print("Enter Book Title: ");
+        title = sc.nextLine();
+
+        System.out.print("Enter Author Name: ");
+        creator = sc.nextLine();
+
+        System.out.print("Enter Number of Pages: ");
+        pages = sc.nextInt();
+        sc.nextLine(); // consume leftover newline
+
+        System.out.println("Book - Title: " + title +
+                ", Author: " + creator +
+                ", Pages: " + pages);
+        System.out.println();
+    }
+}
+
+// Movie subclass
+class Movie extends Media {
+
+    @Override
+    void printDetails() {
+        System.out.println("Entering Movie Details...");
+
+        System.out.print("Enter Movie Title: ");
+        title = sc.nextLine();
+
+        System.out.print("Enter Director Name: ");
+        creator = sc.nextLine();
+
+        System.out.print("Enter Duration (in minutes): ");
+        duration = sc.nextInt();
+        sc.nextLine(); // consume leftover newline
+
+        System.out.println("Movie - Title: " + title +
+                ", Director: " + creator +
+                ", Duration: " + duration + " mins");
+        System.out.println();
+    }
+}
+
+// Song subclass
+class Song extends Media {
+
+    @Override
+    void printDetails() {
+        System.out.println("Entering Song Details...");
+
+        System.out.print("Enter Song Title: ");
+        title = sc.nextLine();
+
+        System.out.print("Enter Singer Name: ");
+        creator = sc.nextLine();
+
+        System.out.print("Enter Duration (in minutes): ");
+        duration = sc.nextInt();
+        sc.nextLine(); // consume leftover newline
+
+        System.out.println("Song - Title: " + title +
+                ", Singer: " + creator +
+                ", Duration: " + duration + " mins");
+        System.out.println();
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+
+        Media media;
+
+        media = new Book();
+        media.printDetails();
+
+        media = new Movie();
+        media.printDetails();
+
+        media = new Song();
+        media.printDetails();
+    }
+}

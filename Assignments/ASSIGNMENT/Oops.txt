@@ -1,0 +1,164 @@
+1.### Problem 1: Class and Object
+Problem Statement:  
+Create a class Car with attributes brand, model, and year. Create an
+object of this class and print its attributes ------Class and Object-------
+Ans.
+import java.util.Scanner;
+class Car {
+    String brand;
+    String model;
+    int year;
+    Car(String brand, String model, int year) {
+        this.brand=brand;
+        this.model=model;
+        this.year=year;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String brand=sc.next();
+        String model=sc.next();
+        int year=sc.nextInt();
+        Car car = new Car(brand, model, year);
+        System.out.println("Brand:" + car.brand);
+        System.out.println("Model:" + car.model);
+        System.out.println("Year:" + car.year);
+    }
+}
+
+2.### Problem 2: Encapsulation
+Problem Statement:  
+Create a class BankAccount with private attributes account_number
+and balance. Implement methods to set and get the balance while
+ensuring data security------ Encapsulation-------
+Ans.
+import java.util.Scanner;
+class BankAccount {
+    private String accountNumber;
+    private int balance;
+    public BankAccount(String accountNumber,int balance) {
+        this.accountNumber=accountNumber;
+        setBalance(balance);
+    }
+    public void setBalance(int balance) {
+        if (balance>=0) {
+            this.balance=balance;
+        } else {
+            System.out.println("Invalid balance amount!");
+        }
+    }
+    public int getBalance() {
+        return balance;
+    }
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String accountNumber=sc.next();
+        int balance=sc.nextInt();
+        BankAccount account=new BankAccount(accountNumber, balance);
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.println("Balance: " + account.getBalance());
+    }
+}
+
+3. ### Problem 3: Inheritance
+Problem Statement:  
+Create a base class Animal with a method make_sound(). Derive a
+class Dog from Animal and override the method to print "Bark".-------Inheritance------
+Ans.
+class Animal {
+    void makeSound() {
+        System.out.println("Some sound");
+    }
+}
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.makeSound();
+    }
+}
+
+4. ### Problem 4: Polymorphism
+Problem Statement:  
+Create a class Shape with a method area(). Derive two classes Circle
+and Rectangle, overriding area() to calculate respective areas.-------Polymorphism------
+Ans.
+import java.util.Scanner;
+class Shape {
+    double area() {
+        return 0;
+    }
+}
+class Circle extends Shape {
+    int radius;
+    Circle(int radius) {
+        this.radius = radius;
+    }
+    @Override
+    double area() {
+        return 3.14*radius*radius;
+    }
+}
+class Rectangle extends Shape {
+    int length, width;
+    Rectangle(int length, int width) {
+        this.length=length;
+        this.width=width;
+    }
+    @Override
+    double area() {
+        return length*width;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        sc.next();
+        int r=sc.nextInt();
+        sc.next();
+        int l=sc.nextInt();
+        int w=sc.nextInt();
+        Circle circle=new Circle(r);
+        Rectangle rectangle=new Rectangle(l, w);
+        System.out.println("Area of Circle: " + circle.area());
+        System.out.println("Area of Rectangle: " + rectangle.area());
+    }
+}
+
+5. ### Problem 5: Abstraction
+Problem Statement:  
+Create an abstract class Vehicle with an abstract method start().
+Implement this method in derived classes Car and Bike-------Abstraction-----
+Ans.
+abstract class Vehicle {
+    abstract void start();
+}
+class Car extends Vehicle {
+    void start() {
+        System.out.println("Car is starting...");
+    }
+}
+class Bike extends Vehicle {
+    void start() {
+        System.out.println("Bike is starting...");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Vehicle car = new Car();
+        Vehicle bike = new Bike();
+        car.start();
+        bike.start();
+    }
+}

@@ -1,0 +1,55 @@
+1.Problem Statement:  
+Create a Java program that demonstrates the concept of
+multi-threading and synchronization. Implement a shared
+BankAccount class where multiple threads (representing different
+users) try to withdraw money concurrently. Use synchronization to
+ensure that the account balance does not become inconsistent.------THREADS ASSIGNMENT------
+Ans.
+import java.util.Scanner;
+class BankAccount {
+    private int balance;
+    public BankAccount(int balance) {
+        this.balance = balance;
+    }
+    public synchronized void withdraw(int amount) {
+        if (amount <= balance) {
+            System.out.println("Withdrawal of " + amount + " successful.");
+            balance -= amount;
+            System.out.println("Remaining balance: " + balance);
+        } else {
+            System.out.println("Insufficient balance for withdrawal of " + amount);
+        }
+    }
+}
+class UserThread extends Thread {
+    private BankAccount account;
+    private int amount;
+    public UserThread(BankAccount account, int amount) {
+        this.account = account;
+        this.amount = amount;
+    }
+    public void run() {
+        account.withdraw(amount);
+    }
+}
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Initial Balance: ");
+        int initialBalance = sc.nextInt();
+        BankAccount account = new BankAccount(initialBalance);
+        System.out.print("Enter number of withdrawals: ");
+        int n = sc.nextInt();
+        UserThread[] threads = new UserThread[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter withdrawal amount: ");
+            int amount = sc.nextInt();
+            threads[i] = new UserThread(account, amount);
+        }
+        for (int i = 0; i < n; i++) {
+            threads[i].start();
+        }
+
+        sc.close();
+    }
+}

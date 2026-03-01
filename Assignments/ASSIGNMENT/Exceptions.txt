@@ -1,0 +1,111 @@
+EXCEPTIONS ASSIGNMENT 
+1.Problem Statement:  
+Identify and handle different types of runtime exceptions in Java.
+Implement separate code snippets to demonstrate each exception
+and provide appropriate exception handling using try-catch blocks-----ARITHMETIC EXCEPTION------
+Ans.
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.print("Enter numerator: ");
+            int num = sc.nextInt();
+            System.out.print("Enter denominator: ");
+            int den = sc.nextInt();
+            int result = num / den;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        }
+        System.out.println("Program continues...");
+        sc.close();
+    }
+}
+
+2.Problem Statement:  
+Identify and handle different types of runtime exceptions in Java.
+Implement separate code snippets to demonstrate each exception
+and provide appropriate exception handling using try-catch blocks------NULL  POINTER EXCEPTION-------
+Ans.
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.print("Enter a string (type 'null' to test): ");
+            String str = sc.nextLine();
+            if (str.equals("null")) {
+                str = null;
+            }
+            System.out.println("Length of string: " + str.length());
+        } catch (NullPointerException e) {
+            System.out.println("Error: Cannot access method on a null object.");
+        }
+        System.out.println("Program continues...");
+        sc.close();
+    }
+}
+
+3.Problem Statement:  
+Identify and handle different types of runtime exceptions in Java.
+Implement separate code snippets to demonstrate each exception
+and provide appropriate exception handling using try-catch blocks-------ARRAY INDEX OUT OF BOUNDS EXCEPTION------
+Ans.
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] arr = {10, 20, 30, 40, 50};
+        try {
+            System.out.print("Enter index (0-4): ");
+            int index = sc.nextInt();
+            System.out.println("Value: " + arr[index]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Invalid array index.");
+        }
+        System.out.println("Program continues...");
+        sc.close();
+    }
+}
+
+4.Problem Statement:  
+Identify and handle different types of runtime exceptions in Java.
+Implement separate code snippets to demonstrate each exception
+and provide appropriate exception handling using try-catch blocks------NUMBER FORMAT EXCEPTION-----
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.print("Enter a number: ");
+            String input = sc.nextLine();
+            int number = Integer.parseInt(input);
+            System.out.println("Number entered: " + number);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Invalid number format.");
+        }
+        System.out.println("Program continues...");
+        sc.close();
+    }
+}
+
+5.Problem Statement:  
+Identify and handle different types of runtime exceptions in Java.
+Implement separate code snippets to demonstrate each exception
+and provide appropriate exception handling using try-catch blocks-------CLASS CAST EXCEPTION-------
+Ans.
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        try {
+            Object obj = "Hello";
+            System.out.println("Trying to cast String to Integer...");
+            Integer num = (Integer) obj;   // Wrong casting
+            System.out.println("Number: " + num);
+        } catch (ClassCastException e) {
+            System.out.println("Error: Cannot cast object to Integer.");
+        }
+        System.out.println("Program continues...");
+    }
+}
